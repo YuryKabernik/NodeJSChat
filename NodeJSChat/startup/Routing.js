@@ -1,5 +1,5 @@
-var routes = require('./routes/index');
-var users = require('./routes/users');
+import routes from '../routes/index';
+import users from'../routes/users';
 
 export default class Routing {
 
