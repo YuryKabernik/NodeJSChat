@@ -1,21 +1,32 @@
 {
-  "name": "node-jschat",
+  "name": "chat-server",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node starter.js",
+    "test": "mocha tests --watch"
   },
-  "description": "NodeJSChat",
+  "description": "ChatServer",
   "author": {
-    "name": ""
+    "name": "Yury Kabernik-Berazouski"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
+    "bootstrap": "^4.1.3",
     "cookie-parser": "^1.4.0",
+    "data-store": "^3.1.0",
     "debug": "^2.2.0",
     "express": "^4.14.0",
+    "jquery": "^3.3.1",
     "morgan": "^1.7.0",
+    "popper.js": "^1.14.4",
     "pug": "^2.0.0-beta6",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "mocha": "^5.2.0"
   }
 }
