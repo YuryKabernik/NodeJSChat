@@ -1,6 +1,4 @@
 $(function () {
-    var socket = io();
-
     $('form').submit(function () {
         var message = $('#m').val();
         var userName = $('#name').text();
