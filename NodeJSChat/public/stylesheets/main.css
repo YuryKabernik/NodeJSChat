@@ -1,8 +1,68 @@
-﻿body {
-    padding: 50px;
+﻿* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
     color: #00B7FF;
+}
+
+.header{
+    text-align: center;
+}
+
+.wrapper{
+    display: table;
+    height: 100%;
+}
+
+.content{
+    display: table-row;
+    height: 100%;
+}
+
+.column-content{
+    padding: 20px 10px;
+
+}
+
+form { background: #ffffff; padding: 3px; bottom: 0; width: 100%; }
+
+form input { border: 0; padding: 10px; width: 90%; }
+
+#messages { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    overflow-y: auto;
+    height:500px;
+    min-height:150px;
+    max-height:80%;
+    height:80% !important;        /* for IE as it does not support min-height */
+}
+
+.footer{
+    text-align: center;
+}
+
+#chat-members p{
+    text-align: center;
+}
+
+.btn-style{
+    z-index: 1;
+}
+
+.input-group-append .btn, .input-group-prepend .btn{
+    position: relative;
+    z-index: 0;
+}
+
+.user-name{
+    display: none;
+}
+
+#user{
+    margin-bottom: 10px;
 }
