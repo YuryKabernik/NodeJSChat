@@ -1,3 +1,9 @@
+import express from 'express';
+import IndexRoute from '../routes/IndexRoute';
+import UsersRoute from '../routes/UsersRoute';
+import ChatRoute from '../routes/ChatRoute';
+import LoginRoute from '../routes/LoginRoute';
+import MessagesRoute from '../routes/MessagesRoute';
 import routes from '../routes/index';
 import users from'../routes/users';
 
