@@ -4,8 +4,6 @@ import UsersRoute from '../routes/UsersRoute';
 import ChatRoute from '../routes/ChatRoute';
 import LoginRoute from '../routes/LoginRoute';
 import MessagesRoute from '../routes/MessagesRoute';
-import routes from '../routes/index';
-import users from'../routes/users';
 
 export default class Routing {
 
@@ -20,9 +18,6 @@ export default class Routing {
         this._application.use('/chat', new ChatRoute().getChatRoute());
         this._application.use('/login', new LoginRoute().getLoginRoute());
         this._application.use('/messages', new MessagesRoute().getMessagesRoute());
-
-        app.use('/', routes);
-        app.use('/users', users);
 
         // catch 404 and forward to error handler
         app.use(function (req, res, next) {
