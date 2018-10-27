@@ -9,6 +9,12 @@ export default class Routing {
 
     route() {
 
+        this._application.use('/', new IndexRoute().getIndexRoute());
+        this._application.use('/users', new UsersRoute().getUsersRoute());
+        this._application.use('/chat', new ChatRoute().getChatRoute());
+        this._application.use('/login', new LoginRoute().getLoginRoute());
+        this._application.use('/messages', new MessagesRoute().getMessagesRoute());
+
         app.use('/', routes);
         app.use('/users', users);
 
