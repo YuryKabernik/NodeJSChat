@@ -20,7 +20,7 @@ export default class Routing {
         this._application.use('/messages', new MessagesRoute().getMessagesRoute());
 
         // catch 404 and forward to error handler
-        app.use(function (req, res, next) {
+        this._application.use(function (req, res, next) {
             var err = new Error('Not Found');
             err.status = 404;
             next(err);
