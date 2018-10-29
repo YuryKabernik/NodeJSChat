@@ -14,6 +14,7 @@ describe('Routing testing', function () {
         // Act
         let res = request(app)
             .get('/messages')
+            .expect('Content-Type', 'application/json')
             .expect(200, expectedResult) // Assert
             .end(done);
     });
@@ -26,6 +27,7 @@ describe('Routing testing', function () {
         // Act
         let res = request(app)
             .get('/users')
+            .expect('Content-Type', 'application/json')
             .expect(200, expectedResult) // Assert
             .end(done);
     });
