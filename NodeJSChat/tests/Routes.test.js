@@ -49,4 +49,22 @@ describe('Routing testing', function () {
             .buffer(true)
             .end(done);
     });
+
+    it('should return index.html as string', function (done) {
+        // Arrange
+        let html = fs.readFileSync('./views/html/index.html');
+
+        // Act
+        let res = request(app)
+            .get('/')
+            .expect('Content-Type', 'text/html') // Assert
+            .expect(function (res) {
+                if (!res.text || res.noContent) {
+                    throw new Error(`Status: ${res.status}\n Body: ${res.body}\n Text: ${res.text}`);
+                }
+            })
+            .expect(html.toString())
+            .buffer(true)
+            .end(done);
+    });
 });
