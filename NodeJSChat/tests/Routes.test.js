@@ -67,4 +67,15 @@ describe('Routing testing', function () {
             .buffer(true)
             .end(done);
     });
+
+    it('should return 404 result', function (done) {
+        // Arrange
+        let html = fs.readFileSync('./views/html/index.html');
+
+        // Act
+        let res = request(app)
+            .get('/api/any')
+            .expect(404) // Assert
+            .end(done);
+    });
 });
