@@ -70,12 +70,12 @@ describe('Routing testing', function () {
 
     it('should return 404 result', function (done) {
         // Arrange
-        let html = fs.readFileSync('./views/html/index.html');
+        let status = 404;
 
         // Act
         let res = request(app)
             .get('/api/any')
-            .expect(404) // Assert
+            .expect(status) // Assert
             .end(done);
     });
 });
