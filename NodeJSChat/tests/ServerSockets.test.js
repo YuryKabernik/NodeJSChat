@@ -85,6 +85,18 @@ describe('Suite of unit tests', function () {
 
     });
 
+    it('Test event:"chat message" with broadcastMessage result.', function (done) {
+
+        sockets[0].on('my chat message', function (msg) {
+            let message = '<div class="msg-container darker"><img src="img/img_avatar2.png" alt="Avatar" class="right"><strong>' + chatUser3.name + '</strong><p>' + chatUser3.msg + '</p> <span class="time-left">' + date.getHours() + ':' + date.getUTCMinutes() + '</span></div>';
+            expect(message).toBe(msg, `Expected: ${message} = Actual: ${msg}`);
+            done();
+        });
+        CreateSocket(1)
+        sockets[0].emit('chat message', { user: chatUser3.name, text: chatUser3.msg });
+
+    });
+
     function CreateSocket(num = 1) {
 
         for (let index = sockets.length - 1; index <= num; index++) {
