@@ -13,6 +13,7 @@ export default class Routing {
 
     route() {
 
+        this._application.use(express.static('./' + 'public'));
         this._application.use('/', new IndexRoute().getIndexRoute());
         this._application.use('/users', new UsersRoute().getUsersRoute());
         this._application.use('/chat', new ChatRoute().getChatRoute());

@@ -29,7 +29,6 @@ export default class Configuration {
             this._app.use(bodyParser.json());
             this._app.use(bodyParser.urlencoded({ extended: false }));
             this._app.use(cookieParser());
-            this._app.use(express.static('./' + 'public'));
         }
     }
 
