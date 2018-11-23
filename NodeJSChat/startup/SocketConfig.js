@@ -24,7 +24,7 @@ export default class SocketConfig {
                 storeUsers.load();
                 storeUsers.set(clientID, { 'name': userName });
 
-                localIO.emit('new user', userName);
+                localIO.emit('update users', storeUsers.json(null, 20));
             });
 
             socket.on('chat message', function (msg) {
