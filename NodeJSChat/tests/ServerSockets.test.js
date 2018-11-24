@@ -2,6 +2,7 @@ var io = require('socket.io-client');
 var assert = require('assert');
 var expect = require('expect');
 var app = require('../starter.js').app;
+var Store = require('data-store');
 
 var socketUrl = 'http://localhost:3000/';
 
@@ -16,6 +17,8 @@ var options = {
 }
 
 var date = new Date();
+var storeMessages = new Store({ path: './data_storage/messages.json' });
+var storeUsers = new Store({ path: './data_storage/users.json' });
 
 describe('Suite of unit tests', function () {
 
@@ -46,28 +49,32 @@ describe('Suite of unit tests', function () {
                 // console.log('no connection to break...');
             }
         }
-
+        storeMessages.clear();
+        storeUsers.clear();
         done();
     });
 
 
-    it('Test event:"new user" when client emits event:"register". \n Parameter "userName" != chatUser2.name', function (done) {
+    it('Test event:"update users" when client emits event:"register". \n Parameter "userName" != chatUser2.name', function (done) {
 
-        sockets[0].on('new user', function (userName) {
+        sockets[0].on('update users', function (userName) {
             expect(chatUser2.name).not.toBe(userName, '');
             done();
         });
 
         sockets[0].emit('register', chatUser1.name);
-
     });
 
-    it('Test event:"new user" when client emits event:"register". \n Parameter "userName" == chatUser2.name', function (done) {
+    it('Test event:"update users" when client emits event:"register". \n Parameter "userName" == chatUser2.name', function (done) {
 
-        sockets[0].on('new user', function (userName) {
-            expect(chatUser2.name).toBe(userName, `Expected: ${chatUser2.name} = Actual: ${userName}`);
-            done();
+        sockets[0].on('update users', function (users) {
+            var usersList = JSON.parse(users);
+            var keys = Object.keys(usersList);
+            keys.forEach(function (key) {
+                expect(usersList[key].name).toBe(chatUser2.name, `Expected: ${chatUser2.name} = Actual: ${usersList[key].name}`);
+            });
         });
+        done();
         CreateSocket(1)
         sockets[1].emit('register', chatUser2.name);
 

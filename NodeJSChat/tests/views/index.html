@@ -1,0 +1,75 @@
+﻿<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="stylesheets/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/main.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/message.css" type="text/css">
+    <title>NodeJS Express Chat</title>
+</head>
+
+<body>
+    <div class="container-fluid wrapper">
+        <div class="card-header header">
+            NodeJS Express Chat
+        </div>
+        <div class="container content">
+            <div class="row" style="height: 100%; width: 100%;">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                    <div class="column-content">
+                        <div id="chat-members"></div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="column-content">
+                        <h4 class="card-title">Chat</h4>
+                        <ul id="messages"></ul>
+                        <form>
+                            <div class="input-group mb-3">
+                                <input id="m" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                    autocomplete="off">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submitx">Button</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                    <div class="container column-content">
+                        <div class="user-name"></div>
+                        <div class="loginWrapper" style="text-align: center">
+                            <button id="login" style="text-align: center;">Login</button>
+                        </div>
+                    </div>
+                    <div class="container column-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted footer">
+            <i class="fas fa-copyright">&copy;</i> Kabernik-Berazouski Yury & Aliaksander Odinec
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="javascript/jquery.min.js"></script>
+    <!-- <script src="javascripts/popper.min.js"></script> -->
+    <script src="stylesheets/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="javascript/chat-member-logic.js" defer></script>
+
+    <!-- Socket io -->
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/javascript/users-chat-list.js"defer></script>
+    <script src="/javascript/chat-message-logic.js" defer></script>
+</body>
+
+</html>

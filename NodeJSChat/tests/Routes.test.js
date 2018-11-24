@@ -8,7 +8,7 @@ describe('Routing testing', function () {
 
     it('should return list ot the messages with as JSON string', function (done) {
         // Arrange
-        let store = new Store({ path: './data_storage/messages.json' });
+        let store = new Store({ path: './tests/data_storage/messages.json' });
         let expectedResult = store.json();
 
         // Act
@@ -21,7 +21,7 @@ describe('Routing testing', function () {
 
     it('should return list ot the users with as JSON string', function (done) {
         // Arrange
-        let store = new Store({ path: './data_storage/users.json' });
+        let store = new Store({ path: './tests/data_storage/users.json' });
         let expectedResult = store.json(null, 10);
 
         // Act
@@ -34,7 +34,7 @@ describe('Routing testing', function () {
 
     it('should return login.html as string', function (done) {
         // Arrange
-        let html = fs.readFileSync('./views/html/login.html');
+        let html = fs.readFileSync('./tests/views/login.html');
 
         // Act
         let res = request(app)
@@ -52,7 +52,7 @@ describe('Routing testing', function () {
 
     it('should return index.html as string', function (done) {
         // Arrange
-        let html = fs.readFileSync('./views/html/index.html');
+        let html = fs.readFileSync('./tests/views/index.html');
 
         // Act
         let res = request(app)
